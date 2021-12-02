@@ -21,17 +21,18 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         searchTextField.delegate = self
     }
 
-    @IBAction func searchPressed(_ sender: UIButton) {
+    @IBAction func searchPressed(_ sender: UIButton) { //function for button return keyboard
         searchTextField.endEditing(true)
         print(searchTextField.text ?? "Search City")
     }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {  //function for return value/word in keyboard
         searchTextField.endEditing(true)
         print(searchTextField.text ?? "Search City")
         return true
     }
     
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool { //function for return empty or changing placeholder
         if textField.text != "" {
             return true
         } else {
@@ -41,6 +42,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        //Use searchTextField.text to get the weather for that city
+        
         searchTextField.text = ""
     }
 }
